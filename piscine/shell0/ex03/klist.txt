@@ -1,0 +1,6 @@
+Credentials cache: API:8C251EA9-29C0-4934-AE68-7D6A0EDF645C
+        Principal: nakoo@42SEOUL.KR
+
+  Issued                Expires               Principal
+Apr 11 12:34:09 2022  Apr 11 22:34:09 2022  krbtgt/42SEOUL.KR@42SEOUL.KR
+Apr 11 12:34:11 2022  Apr 11 22:34:09 2022  HTTP/student-storage.42seoul.kr@42SEOUL.KR

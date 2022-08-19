@@ -1,0 +1,44 @@
+make --dry-run --always-make --keep-going --print-directory
+make: Entering directory `/Users/nakoo/42Cursus/0circle/libft'
+cc -Wall -Wextra -Werror -c ft_atoi.c -o ft_atoi.o -I .
+ 
+cc -Wall -Wextra -Werror -c ft_bzero.c -o ft_bzero.o -I .
+cc -Wall -Wextra -Werror -c ft_calloc.c -o ft_calloc.o -I .
+cc -Wall -Wextra -Werror -c ft_isalnum.c -o ft_isalnum.o -I .
+cc -Wall -Wextra -Werror -c ft_isalpha.c -o ft_isalpha.o -I .
+cc -Wall -Wextra -Werror -c ft_isascii.c -o ft_isascii.o -I .
+cc -Wall -Wextra -Werror -c ft_isdigit.c -o ft_isdigit.o -I .
+ 
+cc -Wall -Wextra -Werror -c ft_isprint.c -o ft_isprint.o -I .
+cc -Wall -Wextra -Werror -c ft_memchr.c -o ft_memchr.o -I .
+cc -Wall -Wextra -Werror -c ft_memcmp.c -o ft_memcmp.o -I .
+cc -Wall -Wextra -Werror -c ft_memcpy.c -o ft_memcpy.o -I .
+cc -Wall -Wextra -Werror -c ft_memmove.c -o ft_memmove.o -I .
+cc -Wall -Wextra -Werror -c ft_memset.c -o ft_memset.o -I .
+cc -Wall -Wextra -Werror -c ft_strchr.c -o ft_strchr.o -I .
+cc -Wall -Wextra -Werror -c ft_strdup.c -o ft_strdup.o -I .
+cc -Wall -Wextra -Werror -c ft_strjoin.c -o ft_strjoin.o -I .
+cc -Wall -Wextra -Werror -c ft_strlcat.c -o ft_strlcat.o -I .
+cc -Wall -Wextra -Werror -c ft_strlcpy.c -o ft_strlcpy.o -I .
+ 
+cc -Wall -Wextra -Werror -c ft_strlen.c -o ft_strlen.o -I .
+cc -Wall -Wextra -Werror -c ft_strncmp.c -o ft_strncmp.o -I .
+cc -Wall -Wextra -Werror -c ft_strnstr.c -o ft_strnstr.o -I .
+cc -Wall -Wextra -Werror -c ft_strrchr.c -o ft_strrchr.o -I .
+cc -Wall -Wextra -Werror -c ft_substr.c -o ft_substr.o -I .
+cc -Wall -Wextra -Werror -c ft_tolower.c -o ft_tolower.o -I .
+cc -Wall -Wextra -Werror -c ft_toupper.c -o ft_toupper.o -I .
+cc -Wall -Wextra -Werror -c ft_strtrim.c -o ft_strtrim.o -I .
+ 
+cc -Wall -Wextra -Werror -c ft_split.c -o ft_split.o -I .
+cc -Wall -Wextra -Werror -c ft_itoa.c -o ft_itoa.o -I .
+cc -Wall -Wextra -Werror -c ft_strmapi.c -o ft_strmapi.o -I .
+cc -Wall -Wextra -Werror -c ft_striteri.c -o ft_striteri.o -I .
+cc -Wall -Wextra -Werror -c ft_putchar_fd.c -o ft_putchar_fd.o -I .
+cc -Wall -Wextra -Werror -c ft_putstr_fd.c -o ft_putstr_fd.o -I .
+cc -Wall -Wextra -Werror -c ft_putendl_fd.c -o ft_putendl_fd.o -I .
+ 
+cc -Wall -Wextra -Werror -c ft_putnbr_fd.c -o ft_putnbr_fd.o -I .
+ar rcs libft.a ft_atoi.o ft_bzero.o ft_calloc.o ft_isalnum.o ft_isalpha.o ft_isascii.o ft_isdigit.o ft_isprint.o ft_memchr.o ft_memcmp.o ft_memcpy.o ft_memmove.o ft_memset.o ft_strchr.o ft_strdup.o ft_strjoin.o ft_strlcat.o ft_strlcpy.o ft_strlen.o ft_strncmp.o ft_strnstr.o ft_strrchr.o ft_substr.o ft_tolower.o ft_toupper.o ft_strtrim.o ft_split.o ft_itoa.o ft_strmapi.o ft_striteri.o ft_putchar_fd.o ft_putstr_fd.o ft_putendl_fd.o ft_putnbr_fd.o
+make: Leaving directory `/Users/nakoo/42Cursus/0circle/libft'
+ 
