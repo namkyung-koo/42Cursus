@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 16:53:25 by nakoo             #+#    #+#             */
-/*   Updated: 2022/08/29 15:46:54 by nakoo            ###   ########.fr       */
+/*   Updated: 2022/08/29 23:54:52 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -82,7 +82,11 @@ int	get_conversion(const char **fmt, t_options *opt, va_list args)
 	else if (**fmt == 's')
 		printed += print_str(opt, va_arg(args, char *));
 	else if (**fmt == 'd' || **fmt == 'i' || **fmt == 'u')
+	{
+		if (**fmt == 'u')
+			opt->flags |= UNSIGN;
 		printed += print_decimal(opt, va_arg(args, long long));
+	}
 	else if (**fmt == 'x' || **fmt == 'X')
 		printed += print_hexadecimal(opt, va_arg(args, unsigned int));
 	else if (**fmt == 'p')

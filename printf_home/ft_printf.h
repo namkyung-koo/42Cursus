@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 16:54:25 by nakoo             #+#    #+#             */
-/*   Updated: 2022/08/29 20:37:31 by nakoo            ###   ########.fr       */
+/*   Updated: 2022/08/29 23:53:20 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,7 +17,7 @@
 # include <stdarg.h>
 
 # define ZEROPAD 1		/* pad with zero */
-# define SIGN 2			/* unsinged/signed long */
+# define UNSIGN 2		/* unsigned/signed long long */
 # define PLUS 4			/* show plus */
 # define SPACE 8		/* space if plus */
 # define LEFT 16		/* left justified */

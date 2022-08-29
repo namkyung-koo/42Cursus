@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 11:49:21 by nakoo             #+#    #+#             */
-/*   Updated: 2022/08/29 20:49:53 by nakoo            ###   ########.fr       */
+/*   Updated: 2022/08/30 00:03:46 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -54,7 +54,6 @@ int	print_decimal(t_options *opt, long long num)
 	int	printed;
 
 	printed = 0;
-	
 }
 
 int	print_hexadecimal(t_options *opt, unsigned int num)
