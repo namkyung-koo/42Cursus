@@ -6,11 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 11:49:21 by nakoo             #+#    #+#             */
-<<<<<<< HEAD:printf/ft_printf_utils.c
-/*   Updated: 2022/08/30 19:51:45 by nakoo            ###   ########.fr       */
-=======
-/*   Updated: 2022/08/30 00:03:46 by nakoo            ###   ########.fr       */
->>>>>>> ce2d3d391e78c4f1672a6c9a4d5c195d06df66b1:printf_home/ft_printf_utils.c
+/*   Updated: 2022/08/30 23:01:16 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,7 +53,6 @@ int	print_decimal(t_options *opt, long long num)
 	int	num_len;
 
 	printed = 0;
-<<<<<<< HEAD:printf/ft_printf_utils.c
 	num_len = get_length(num);
 	if (num < 0)
 		num_len += 1;
@@ -66,8 +61,6 @@ int	print_decimal(t_options *opt, long long num)
 		put_padding(' ', opt->width - opt->precision - num_len);
 	}
 	return (printed);
-=======
->>>>>>> ce2d3d391e78c4f1672a6c9a4d5c195d06df66b1:printf_home/ft_printf_utils.c
 }
 
 int	print_hexadecimal(t_options *opt, unsigned int num)

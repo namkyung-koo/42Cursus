@@ -6,11 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 16:54:25 by nakoo             #+#    #+#             */
-<<<<<<< HEAD:printf/ft_printf.h
-/*   Updated: 2022/08/30 16:51:25 by nakoo            ###   ########.fr       */
-=======
-/*   Updated: 2022/08/29 23:53:20 by nakoo            ###   ########.fr       */
->>>>>>> ce2d3d391e78c4f1672a6c9a4d5c195d06df66b1:printf_home/ft_printf.h
+/*   Updated: 2022/08/30 22:59:42 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -21,11 +17,7 @@
 # include <stdarg.h>
 
 # define ZEROPAD 1		/* pad with zero */
-<<<<<<< HEAD:printf/ft_printf.h
 # define SIGN 2			/* unsigned/signed long long */
-=======
-# define UNSIGN 2		/* unsigned/signed long long */
->>>>>>> ce2d3d391e78c4f1672a6c9a4d5c195d06df66b1:printf_home/ft_printf.h
 # define PLUS 4			/* show plus */
 # define SPACE 8		/* space if plus */
 # define LEFT 16		/* left justified */
