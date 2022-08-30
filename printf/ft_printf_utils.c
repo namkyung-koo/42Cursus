@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/22 11:49:21 by nakoo             #+#    #+#             */
-/*   Updated: 2022/08/29 20:49:53 by nakoo            ###   ########.fr       */
+/*   Updated: 2022/08/30 19:51:45 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,9 +41,7 @@ int	print_str(t_options *opt, char *str)
 	if (opt->width > str_len && !(opt->flags & LEFT))
 		printed += put_padding(' ', opt->width - str_len);
 	i = 0;
-	while (i < str_len)
-		ft_putchar_fd(str[i++]);
-	printed += str_len;
+	printed += write(1, str, str_len);
 	if (opt->width > str_len && (opt->flags & LEFT))
 		printed += put_padding(' ', opt->width - str_len);
 	return (printed);
@@ -52,9 +50,17 @@ int	print_str(t_options *opt, char *str)
 int	print_decimal(t_options *opt, long long num)
 {
 	int	printed;
+	int	num_len;
 
 	printed = 0;
-	
+	num_len = get_length(num);
+	if (num < 0)
+		num_len += 1;
+	if (opt->width > num_len)
+	{
+		put_padding(' ', opt->width - opt->precision - num_len);
+	}
+	return (printed);
 }
 
 int	print_hexadecimal(t_options *opt, unsigned int num)
