@@ -41,3 +41,9 @@ void	ft_print_combn(int n)
 		return ;
 	ft_be_recursive(0, '0', arr, n);
 }
+
+int	main(void)
+{
+	ft_print_combn(4);
+	return (0);
+}	

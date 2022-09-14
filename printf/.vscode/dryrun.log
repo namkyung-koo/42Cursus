@@ -1,7 +1,0 @@
-make --dry-run --always-make --keep-going --print-directory
-make: Entering directory `/Users/koonamkyung/42Cursus/printf'
- 
-make: *** No targets.  Stop.
-
-make: Leaving directory `/Users/koonamkyung/42Cursus/printf'
- 
