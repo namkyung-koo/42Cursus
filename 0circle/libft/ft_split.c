@@ -102,3 +102,31 @@ char	**ft_split(char const *s, char c)
 	split[cnt] = 0;
 	return (ft_slice_str(split, s, c));
 }
+
+#include <stdio.h>
+
+int	main(int ac, char **av)
+{
+	char **ptr = 0;
+
+	if (ac < 2)
+		return (0);
+	ptr = ft_split(av[1], ' ');
+	if (!ptr)
+	{
+		printf("malloc error!\n");
+		return (1);
+	}
+	while (*ptr != 0)
+	{
+		printf("%s\n", *ptr);
+		(*ptr)++;
+	}
+//	int	i = 0;
+//	while (i < 3)
+//	{
+//		printf("%s\n", ptr[i]);
+//		i++;
+//	}
+	return (0);
+}
