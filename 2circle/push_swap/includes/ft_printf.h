@@ -6,14 +6,13 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 16:54:25 by nakoo             #+#    #+#             */
-/*   Updated: 2022/09/12 17:26:11 by nakoo            ###   ########.fr       */
+/*   Updated: 2022/10/13 14:16:25 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #ifndef FT_PRINTF_H
 # define FT_PRINTF_H
 
-# include <unistd.h>
 # include <stdarg.h>
 
 # define ZEROPAD 1	/* pad with zero */

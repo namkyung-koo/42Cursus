@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 14:46:39 by nakoo             #+#    #+#             */
-/*   Updated: 2022/10/07 20:01:00 by nakoo            ###   ########.fr       */
+/*   Updated: 2022/10/14 18:33:40 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,7 +14,8 @@
 
 void	error_and_exit(t_clist **clist)
 {
-	clist_clear(clist);
+	if (clist != NULL)
+		clist_clear(clist);
 	write(2, "Error\n", 6);
 	exit(0);
 }
@@ -39,6 +40,8 @@ long long	ft_atoll(const char *str)
 			sign *= -1;
 		str++;
 	}
+	if (*str == '\0')
+		error_and_exit(NULL);
 	res = 0;
 	while ('0' <= *str && *str <= '9')
 	{
@@ -46,10 +49,7 @@ long long	ft_atoll(const char *str)
 		str++;
 	}
 	if (*str != '\0')
-	{
-		write(1, "Error\n", 6);
-		exit(0);
-	}
+		error_and_exit(NULL);
 	return (res * sign);
 }
 

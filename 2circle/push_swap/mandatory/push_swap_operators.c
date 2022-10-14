@@ -6,84 +6,70 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/04 10:43:40 by nakoo             #+#    #+#             */
-/*   Updated: 2022/10/07 20:03:51 by nakoo            ###   ########.fr       */
+/*   Updated: 2022/10/14 18:34:43 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-void	swap(t_clist **a, t_clist **b)
-{
-	if (b == NULL)
-	{
-		if ((*a)->num_of_data < 2)
-			return ;
-		clist_swap(a);
-		ft_printf("sa\n");
-		return ;
-	}
-	else if (a == NULL)
-	{
-		if ((*b)->num_of_data < 2)
-			return ;
-		clist_swap(b);
-		ft_printf("sb\n");
-		return ;
-	}
-	if ((*a)-> num_of_data < 2 || (*b)->num_of_data < 2)
-		return ;
-	clist_swap(a);
-	clist_swap(b);
-	ft_printf("ss\n");
-}
-
 void	push(t_clist **src, t_clist **dst)
 {
 	int	data;
 
-	if ((*src)->num_of_data == 0)
+	if ((*src)->num_of_data == EMPTY)
 		return ;
 	data = clist_remove(src);
 	clist_insert_back(dst, data);
 	ft_printf("p%c\n", (*dst)->name);
 }
 
-void	rotate(t_clist **a, t_clist **b)
+void	swap(t_clist **src, t_clist **dst, int flag)
 {
-	if (b == NULL)
+	if (flag == ONLY)
 	{
-		clist_rotate(a);
-		ft_printf("ra\n");
-		return ;
+		if ((*src)->num_of_data < 2)
+			return ;
+		clist_swap(src);
+		ft_printf("s%c\n", (*src)->name);
 	}
-	else if (a == NULL)
+	else
 	{
-		clist_rotate(b);
-		ft_printf("rb\n");
-		return ;
+		if ((*src)->num_of_data < 2 || (*dst)->num_of_data < 2)
+			return ;
+		clist_swap(src);
+		clist_swap(dst);
+		ft_printf("ss\n");
 	}
-	clist_rotate(a);
-	clist_rotate(b);
-	ft_printf("rr\n");
 }
 
-void	reverse_rotate(t_clist **a, t_clist **b)
+void	rotate(t_clist **src, t_clist **dst, int flag)
 {
-	if (b == NULL)
+	if (flag == ONLY)
 	{
-		clist_reverse_rotate(a);
-		ft_printf("rra\n");
-		return ;
+		clist_rotate(src);
+		ft_printf("r%c\n", (*src)->name);
 	}
-	else if (a == NULL)
+	else
 	{
-		clist_reverse_rotate(b);
-		ft_printf("rrb\n");
-		return ;
+		clist_rotate(src);
+		clist_rotate(dst);
+		ft_printf("rr\n");
 	}
-	clist_reverse_rotate(a);
-	clist_reverse_rotate(b);
-	ft_printf("rrr\n");
+}
+
+void	reverse_rotate(t_clist **src, t_clist **dst, int flag)
+{
+	if (flag == ONLY)
+	{
+		clist_reverse_rotate(src);
+		ft_printf("rr%c\n", (*src)->name);
+	}
+	else
+	{
+		clist_reverse_rotate(src);
+		clist_reverse_rotate(dst);
+		ft_printf("rrr\n");
+	}
 }
 
 void	do_operation(t_clist **a)
@@ -92,16 +78,13 @@ void	do_operation(t_clist **a)
 
 	b = (t_clist *)malloc(sizeof(t_clist));
 	if (!b)
-		without_error_and_exit(a);
+		clear_and_exit(a, NULL);
 	clist_init(&b);
 	b->name = 'b';
-	if ((*a)->num_of_data < 6)
+	if ((*a)->num_of_data <= 5)
 		sort_below_five(a, &b);
-	if ((*a)->num_of_data > 5 && get_exponent((*a)->num_of_data) % 2 == 0)
-	{
-		while ((*a)->num_of_data != 0)
-			push(a, &b);
-	}
+	else
+		merge_sort(a, &b);
 	clist_clear(a);
 	clist_clear(&b);
 }

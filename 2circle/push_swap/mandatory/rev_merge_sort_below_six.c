@@ -1,22 +1,33 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   clist_init.c                                       :+:      :+:    :+:   */
+/*   rev_merge_sort_below_six.c                         :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2022/09/28 15:39:34 by nakoo             #+#    #+#             */
-/*   Updated: 2022/10/12 19:05:44 by nakoo            ###   ########.fr       */
+/*   Created: 2022/10/14 16:11:38 by nakoo             #+#    #+#             */
+/*   Updated: 2022/10/14 16:12:30 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "c_linked_list.h"
+#include "push_swap.h"
 
-void	clist_init(t_clist **clist)
+void	rev_merge_sort_below_six(t_clist **src, t_clist **dst)
 {
-	(*clist)->top = NULL;
-	(*clist)->bottom = NULL;
-	(*clist)->before = NULL;
-	(*clist)->num_of_data = 0;
-	(*clist)->name = '\0';
+}
+
+void	rev_merge_sort_below_five(t_clist **src, t_clist **dst)
+{
+}
+
+void	rev_merge_sort_below_four(t_clist **src, t_clist **dst)
+{
+}
+
+void	rev_merge_sort_below_three(t_clist **src, t_clist **dst)
+{
+}
+
+void	rev_merge_sort_below_two(t_clist **src, t_clist **dst)
+{
 }

@@ -6,62 +6,115 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 19:49:07 by nakoo             #+#    #+#             */
-/*   Updated: 2022/10/07 20:48:48 by nakoo            ###   ########.fr       */
+/*   Updated: 2022/10/14 18:29:32 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
 
-int	ft_power(int base, int exp)
+void	clear_and_exit(t_clist **a, t_clist **b)
 {
-	int	power;
-	int	i;
-
-	power = 1;
-	i = 0;
-	while (i < exp)
-	{
-		power *= base;
-		i++;
-	}
-	return (power);
-}
-
-int	get_exponent(int n)
-{
-	int	exp;
-
-	exp = 0;
-	while (n != 0)
-	{
-		exp++;
-		n /= 3;
-	}
-	return (exp - 1);
+	if (a != NULL)
+		clist_clear(a);
+	if (b != NULL)
+		clist_clear(b);
+	exit(1);
 }
 
 void	sort_below_five(t_clist **a, t_clist **b)
 {
 	t_node	*min_node;
-	int		min_data;
-	int		i;
 
 	while ((*a)->num_of_data > 3)
 	{
+		min_node = find_min(a);
+		if (min_node == (*a)->bottom || min_node == (*a)->bottom->next)
+		{
+			if (min_node == (*a)->bottom->next)
+				reverse_rotate(a, b, ONLY);
+			reverse_rotate(a, b, ONLY);
+		}
+		else if (min_node == (*a)->bottom->next->next && (*a)->num_of_data != 4)
+		{
+			rotate(a, b, ONLY);
+			rotate(a, b, ONLY);
+		}
+		else if (min_node == (*a)->before)
+			rotate(a, b, ONLY);
 		push(a, b);
 	}
-	i = 0;
+	sort_below_three(a, b);
+}
+
+void	sort_below_three(t_clist **a, t_clist **b)
+{
+	t_node	*min_node;
+
+	min_node = find_min(a);
+	if (min_node == (*a)->top && (*a)->before->data > (*a)->bottom->data)
+	{
+		reverse_rotate(a, b, ONLY);
+		swap(a, b, ONLY);
+	}
+	else if (min_node == (*a)->before && (*a)->bottom->data > (*a)->top->data)
+		swap(a, b, ONLY);
+	else if (min_node == (*a)->before && (*a)->bottom->data < (*a)->top->data)
+		rotate(a, b, ONLY);
+	else if (min_node == (*a)->bottom && (*a)->top->data > (*a)->before->data)
+	{
+		swap(a, b, ONLY);
+		reverse_rotate(a, b, ONLY);
+	}
+	else if (min_node == (*a)->bottom && (*a)->top->data < (*a)->before->data)
+		reverse_rotate(a, b, ONLY);
+	while ((*b)->num_of_data != 0)
+		push(b, a);
+}
+
+t_node	*find_min(t_clist **a)
+{
+	t_node	*min_node;
+	t_node	*comp_node;
+	int		min_data;
+	int		i;
+
 	min_node = (*a)->bottom;
 	min_data = (*a)->bottom->data;
-	while (i < 2)
+	comp_node = (*a)->bottom->next;
+	i = (*a)->num_of_data;
+	while (i > 1)
 	{
-		i++;	
+		if (min_node->data > comp_node->data)
+		{
+			min_node = comp_node;
+			min_data = comp_node->data;
+		}
+		comp_node = comp_node->next;
+		i--;
 	}
-	if (min_node == (*a)->top)
-		rotate(a, NULL);
-	else if(min_node == (a)->before)
-		reverse_rotate(a, NULL);
-	if ((*a)->top->data > (*a)->before->data)
-		swap(a, NULL);
-	reverse_rotate(a, NULL);
+	return (min_node);
+}
+
+t_node	*find_max(t_clist **a)
+{
+	t_node	*max_node;
+	t_node	*comp_node;
+	int		max_data;
+	int		i;
+
+	max_node = (*a)->bottom;
+	max_data = (*a)->bottom->data;
+	comp_node = (*a)->bottom->next;
+	i = (*a)->num_of_data;
+	while (i > 1)
+	{
+		if (max_node->data < comp_node->data)
+		{
+			max_node = comp_node;
+			max_data = comp_node->data;
+		}
+		comp_node = comp_node->next;
+		i--;
+	}
+	return (max_node);
 }

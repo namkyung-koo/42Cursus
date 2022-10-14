@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/03 17:02:24 by nakoo             #+#    #+#             */
-/*   Updated: 2022/10/07 20:01:45 by nakoo            ###   ########.fr       */
+/*   Updated: 2022/10/11 15:15:47 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,4 +26,7 @@ void	clist_clear(t_clist **clist)
 		((*clist)->num_of_data)--;
 	}
 	clist_init(clist);
+	if (*clist != NULL)
+		free(*clist);
+	(*clist) = NULL;
 }
