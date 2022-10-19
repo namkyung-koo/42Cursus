@@ -6,26 +6,11 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/12 19:29:16 by nakoo             #+#    #+#             */
-/*   Updated: 2022/10/14 18:30:34 by nakoo            ###   ########.fr       */
+/*   Updated: 2022/10/18 15:05:16 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
-
-int	power(int base, int exp)
-{
-	int	res;
-	int	i;
-
-	res = 1;
-	i = 0;
-	while (i < exp)
-	{
-		res *= base;
-		i++;
-	}
-	return (res);
-}
 
 int	get_depth(int nb)
 {
@@ -64,38 +49,65 @@ int	get_order(int idx)
 	return (flip);
 }
 
-void	move_one_third(t_clist **a, t_clist **b, int *cnt)
+int	power(int base, int exp)
 {
-	t_clist	*src;
-	t_clist	*dst;
-	int		nb;
-	int		i;
+	int	res;
+	int	i;
 
-	if (cnt % 2 == 0)
-	{
-		src = (*a);
-		dst = (*b);
-	}
-	else
-	{
-		src = (*b);
-		dst = (*a);
-	}
-	nb = (src->num_of_data) / 3;
+	res = 1;
 	i = 0;
-	while (i < nb)
+	while (i < exp)
 	{
-		push(src, dst);
+		res *= base;
 		i++;
 	}
-	(*cnt)++;
+	return (res);
 }
 
-void	move_b_to_a(t_clist **a, t_clist **b)
+t_node	*set_max(t_clist **src, t_clist **dst, int *arr)
 {
-	while ((*b)->num_of_data != EMPTY)
+	t_node	*max_node;
+	int		max_data;
+
+	max_data = INT_MIN;
+	if (arr[0] != EMPTY)
 	{
-		reverse_rotate(b, a, ONLY);
-		push(b, a);
+		max_node = (*src)->top;
+		max_data = (*src)->top->data;
 	}
+	if (arr[1] != EMPTY && max_data < (*src)->bottom->data)
+	{
+		max_node = (*src)->bottom;
+		max_data = (*src)->bottom->data;
+	}
+	if (arr[2] != EMPTY && max_data < (*dst)->bottom->data)
+	{
+		max_node = (*dst)->bottom;
+		max_data = (*dst)->bottom->data;
+	}
+	return (max_node);
+}
+
+t_node	*set_min(t_clist **src, t_clist **dst, int *arr)
+{
+	t_node	*min_node;
+	int		min_data;
+
+	min_data = INT_MAX;
+	if (arr[0] != EMPTY)
+	{
+		min_node = (*src)->top;
+		min_data = (*src)->top->data;
+	}
+	if (arr[1] != EMPTY && min_data < (*src)->bottom->data)
+	{
+		min_node = (*src)->bottom;
+		min_data = (*src)->bottom->data;
+	}
+	if (arr[2] != EMPTY && min_data < (*dst)->bottom->data)
+	{
+		min_node = (*dst)->top;
+		min_data = (*dst)->top->data;
+	}
+	return (min_node);
 }

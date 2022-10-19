@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/02 05:38:13 by nakoo             #+#    #+#             */
-/*   Updated: 2022/10/07 20:02:02 by nakoo            ###   ########.fr       */
+/*   Updated: 2022/10/19 15:20:18 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -27,9 +27,10 @@ int	clist_remove(t_clist **clist)
 		return (r_data);
 	}
 	(*clist)->top = (*clist)->before;
-	(*clist)->top->next = r_node->next;
+	(*clist)->before = (*clist)->bottom;
 	while ((*clist)->before->next != (*clist)->top)
 		(*clist)->before = (*clist)->before->next;
+	(*clist)->top->next = (*clist)->bottom;
 	free(r_node);
 	r_node = NULL;
 	if ((*clist)->num_of_data != 0)

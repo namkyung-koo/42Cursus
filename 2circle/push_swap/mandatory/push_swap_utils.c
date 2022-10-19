@@ -6,11 +6,55 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/09/16 14:46:39 by nakoo             #+#    #+#             */
-/*   Updated: 2022/10/14 18:33:40 by nakoo            ###   ########.fr       */
+/*   Updated: 2022/10/18 15:09:28 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "push_swap.h"
+
+int	check_sort(t_clist *a)
+{
+	t_node	*comp;
+	int		max;
+	int		flag;
+
+	flag = 0;
+	max = a->bottom->data;
+	comp = a->bottom->next;
+	while (comp != a->bottom)
+	{
+		if (max > comp->data)
+			max = comp->data;
+		else
+		{
+			flag = 1;
+			break ;
+		}
+		comp = comp->next;
+	}
+	if (flag == 1)
+		return (1);
+	return (0);
+}
+
+int	detect_duplicates(t_clist *a)
+{
+	t_node	*comp;
+
+	while (a->bottom != a->top)
+	{
+		comp = a->bottom->next;
+		while (comp != a->top->next)
+		{
+			if (a->bottom->data == comp->data)
+				return (0);
+			comp = comp->next;
+		}
+		a->bottom = a->bottom->next;
+	}
+	a->bottom = a->bottom->next;
+	return (1);
+}
 
 void	error_and_exit(t_clist **clist)
 {
@@ -51,48 +95,4 @@ long long	ft_atoll(const char *str)
 	if (*str != '\0')
 		error_and_exit(NULL);
 	return (res * sign);
-}
-
-int	detect_duplicates(t_clist *a)
-{
-	t_node	*comp;
-
-	while (a->bottom != a->top)
-	{
-		comp = a->bottom->next;
-		while (comp != a->top->next)
-		{
-			if (a->bottom->data == comp->data)
-				return (0);
-			comp = comp->next;
-		}
-		a->bottom = a->bottom->next;
-	}
-	a->bottom = a->bottom->next;
-	return (1);
-}
-
-int	check_sort(t_clist *a)
-{
-	t_node	*comp;
-	int		max;
-	int		flag;
-
-	flag = 0;
-	max = a->bottom->data;
-	comp = a->bottom->next;
-	while (comp != a->bottom)
-	{
-		if (max > comp->data)
-			max = comp->data;
-		else
-		{
-			flag = 1;
-			break ;
-		}
-		comp = comp->next;
-	}
-	if (flag == 1)
-		return (1);
-	return (0);
 }

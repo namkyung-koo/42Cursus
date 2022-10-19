@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/10/05 19:49:07 by nakoo             #+#    #+#             */
-/*   Updated: 2022/10/14 18:29:32 by nakoo            ###   ########.fr       */
+/*   Updated: 2022/10/18 12:21:05 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -93,28 +93,4 @@ t_node	*find_min(t_clist **a)
 		i--;
 	}
 	return (min_node);
-}
-
-t_node	*find_max(t_clist **a)
-{
-	t_node	*max_node;
-	t_node	*comp_node;
-	int		max_data;
-	int		i;
-
-	max_node = (*a)->bottom;
-	max_data = (*a)->bottom->data;
-	comp_node = (*a)->bottom->next;
-	i = (*a)->num_of_data;
-	while (i > 1)
-	{
-		if (max_node->data < comp_node->data)
-		{
-			max_node = comp_node;
-			max_data = comp_node->data;
-		}
-		comp_node = comp_node->next;
-		i--;
-	}
-	return (max_node);
 }

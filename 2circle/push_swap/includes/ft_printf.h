@@ -6,7 +6,7 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/08/13 16:54:25 by nakoo             #+#    #+#             */
-/*   Updated: 2022/10/13 14:16:25 by nakoo            ###   ########.fr       */
+/*   Updated: 2022/10/17 19:23:52 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,6 +14,7 @@
 # define FT_PRINTF_H
 
 # include <stdarg.h>
+# include <unistd.h>
 
 # define ZEROPAD 1	/* pad with zero */
 # define PLUS 2		/* show plus */
