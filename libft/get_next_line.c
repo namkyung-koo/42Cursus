@@ -6,11 +6,11 @@
 /*   By: nakoo <nakoo@student.42seoul.kr>           +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2022/07/28 19:03:38 by nakoo             #+#    #+#             */
-/*   Updated: 2022/11/01 09:07:14 by nakoo            ###   ########.fr       */
+/*   Updated: 2022/11/01 09:13:38 by nakoo            ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
-#include "get_next_line.h"
+#include "libft.h"
 
 char	*free_memory(char **ptr)
 {
